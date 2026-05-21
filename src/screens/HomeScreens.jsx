@@ -1,4 +1,5 @@
 import axios from "axios";
+import { PRODUCTS_URL } from "../constants";
 import { Link, useLoaderData } from "react-router-dom";
 import Product from "../components/ProductItem";
 import HeroBanner from "../components/HeroBanner";
@@ -52,7 +53,7 @@ export const productsLoader = async ({ params }) => {
   const pageNumber = params.pageNumber || 1;
 
   const { data } = await axios.get(
-    `/api/products?keyword=${keyword ? keyword : ""}&pageNumber=${pageNumber}`,
+    `${PRODUCTS_URL}?keyword=${keyword ? keyword : ""}&pageNumber=${pageNumber}`,
   );
   return data;
 };

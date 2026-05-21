@@ -1,4 +1,5 @@
 import axios from "axios";
+import { PRODUCTS_URL } from "../constants";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import Rating from "../components/Rating";
 import { useState } from "react";
@@ -191,6 +192,6 @@ const ProductScereen = () => {
 export default ProductScereen;
 
 export const productLoader = async ({ params }) => {
-  const { data } = await axios.get(`/api/products/${params.id}`);
+  const { data } = await axios.get(`${PRODUCTS_URL}/${params.id}`);
   return data;
 };
