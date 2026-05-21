@@ -44,7 +44,7 @@ const ProductScereen = () => {
   return (
     <>
       <Link
-        className="btn bg-gray-200 px-4 py-2 rounded mb-2 sm:mb-4 inline-block hover:bg-gray-400"
+        className="btn bg-gray-200 px-4 py-2 rounded mt-4  mb-2 sm:mb-4 inline-block hover:bg-gray-400"
         to="/"
       >
         Go Back
