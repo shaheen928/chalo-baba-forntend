@@ -126,7 +126,8 @@ const deleteHandler = async (id) => {
                   <p className="text-[11px] text-green-600 font-bold bg-green-50 border border-green-100 px-3 py-1.5 rounded-xl truncate">
                     ✓ Ready: {image}
                   </                p>
-                  <img src={image} alt="Preview" className="mt-3 w-full aspect-21/9 sm:aspect-21/7 md:aspect-21/9  object-cover rounded-xl border shadow-inner" />
+                  <img  src={image  && typeof image === 'String' && image.startWith('http') ? image : `https://chalo-baba-backend.vercel.app${image}`}
+                  alt="Preview" className="mt-3 w-full aspect-21/9 sm:aspect-21/7 md:aspect-21/9  object-cover rounded-xl border shadow-inner" />
                 </div>
               ) : (
                 <p className="text-[11px] text-slate-400 mt-3">Recommended aspect ratio: 21:9 or 16:9 for clean view.</p>
@@ -157,7 +158,7 @@ const deleteHandler = async (id) => {
             {banners.map((b) => (
               <div key={b._id} className="border border-slate-100 rounded-2xl overflow-hidden relative group shadow-sm bg-slate-950 aspect-21/9">
                 <img 
-                  src={b.image} 
+                   src={b && b.image && typeof b.image === 'String' && b.image.startWith('http') ? b.image : `https://chalo-baba-backend.vercel.app${b.image}`}
                   alt={b.title} 
                   className="absolute inset-0 w-full h-full object-cover object-center opacity-80 transition duration-500 group-hover:scale-105" 
                 />

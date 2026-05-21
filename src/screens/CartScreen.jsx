@@ -54,7 +54,7 @@ dispatch(removeFromCart(id))
                 {" "}
                    <img
                     className="w-12 h-12 sm:w-18 sm:h-18 bg-gray-50 object-cover rounded-xl"
-                    src={item.image}
+                    src={item && item.image && typeof item.image === 'String' && item.image.startWith('http') ? item.image : `https://chalo-baba-backend.vercel.app${item.image}`}
                     alt={item.name}
                   />
                   <div className="flex-1">

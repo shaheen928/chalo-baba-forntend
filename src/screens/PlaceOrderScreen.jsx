@@ -81,7 +81,7 @@ const PlaceOrderScreen = () => {
                   >
                     <div className="flex items-center gap-4">
                       <img
-                        src={item.image}
+                        src={item && item.image && typeof item.image === 'String' && item.image.startWith('http') ? item.image : `https://chalo-baba-backend.vercel.app${item.image}`}
                         alt={item.name}
                         className="w-12 h-12 sm:w-16 sm:h-16 object-cover rounded-lg shrink-0"
                       />
