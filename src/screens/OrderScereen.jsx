@@ -51,8 +51,8 @@ const OrderScereen = () => {
     amount: order?.totalPrice,
     item_name: `Order #${order?._id}`,
     m_payment_id: String(order?._id),
-    return_url: `http://localhost:5173/order/${order?._id}`,
-    cancel_url: `http://localhost:5173/order/${order?._id}`,
+    return_url: `https://chalo-baba.vercel.app/order/${order?._id}`,
+    cancel_url: `https://chalo-baba.vercel.app/order/${order?._id}`,
     notify_url: ` https://chalo-baba-backend.vercel.app/api/orders/payfast/itn`,
   };
 

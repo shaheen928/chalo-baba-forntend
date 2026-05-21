@@ -1,17 +1,19 @@
 import { apiSlice } from "./apiSlice";
+import { BANNER_URL } from "../constants";
+import { UPLOAD_URL } from "../constants";
 
 
 export const bannerApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getBanners: builder.query({
       query: () => ({
-        url:'/api/banners',
+        url:BANNER_URL,
       }),
       providesTags: ['Banners']
     }),
     createBanner: builder.mutation({
      query: (data)=> ({
-      url: '/api/banners',
+      url: BANNER_URL,
       method: 'POST',
       body: data 
      }),
@@ -19,14 +21,14 @@ export const bannerApiSlice = apiSlice.injectEndpoints({
     }),
     deleteBanner: builder.mutation({
       query: (id) => ({
-        url:`/api/banners/${id}`,
+        url:`${BANNER_URL}/${id}`,
         method: 'DELETE'
       }),
       invalidatesTags: ['Banners']
     }),
     upLoadBannerImage: builder.mutation ({
       query: (data) => ({
-       url:'/api/upload',
+       url:UPLOAD_URL,
         method: 'POST',
         body: data
       })

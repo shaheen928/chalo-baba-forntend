@@ -11,14 +11,33 @@ import 'swiper/css/effect-fade';
 
 const HeroBanner = () => {
   const{data: banners,isLoading,error}= useGetBannersQuery()
-  console.log(banners)
-
-  console.log(banners)
-  if(isLoading) return <div className='h-48 sm:h-64 md:h-96 w-full bg-slate-100 animate-pulse rounded-3xl max-w-5xl mx-auto my-6'></div>
+ 
+   if(isLoading) return <div className='h-48 sm:h-64 md:h-96 w-full bg-slate-100 animate-pulse rounded-3xl max-w-5xl mx-auto my-6'></div>
   if(error || !banners || banners.length === 0 ) return null
    
 
   return <div className="max-w-7xl  mx-auto my-6 px-4 ">
+    <style>{`
+        @media (max-width: 640px) {
+          .swiper-button-next,
+          .swiper-button-prev {
+            width: 24px !important;
+            height: 24px !important;
+            background-color: rgba(0, 0, 0, 0.4) !important;
+            border-radius: 50% !important;
+          }
+          .swiper-button-next::after,
+          .swiper-button-prev::after {
+            font-size: 10px !important;
+            font-weight: bold !important;
+            color: #ffffff !important;
+          }
+          .swiper-pagination-bullet {
+            width: 6px !important;
+            height: 6px !important;
+          }
+        }
+      `}</style>
       <Swiper
         modules={[Navigation, Pagination, Autoplay, EffectFade]}
         effect="fade"
@@ -35,7 +54,7 @@ const HeroBanner = () => {
              
             <div className="relative w-full aspect-21/9 sm:aspect-21/8 md:aspect-21/7 lg:aspect-21/7">
               <img 
-                src={slide.image} 
+                src={slide.image.startwith('http') ? slide.image : `https://chalo-baba-backend.vercel.app${slide.image}`} 
                 className="absolute inset-0 w-full h-full object-cover" 
                 alt={slide.title}
                 loading="eager"

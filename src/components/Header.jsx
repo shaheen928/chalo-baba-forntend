@@ -39,7 +39,7 @@ const Header = () => {
             className="flex items-center transition-transform active:scale-95 duration-200 "
           >
             <img src="/logo.png" alt="Chalo Baba" 
-            className="h-12 w-auto pl-4 object-cover"/>
+            className="h-12 w-auto pl-2 object-cover"/>
           </Link>
 
           <div className="w-full order-3 md:order-2 md:flex-1 md:max-w-md lg:mx-w-xl ">

@@ -1,3 +1,4 @@
+import { PRODUCTS_URL } from "../constants";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -13,7 +14,7 @@ const SearchBar = () => {
       if (keyword.trim().length > 1 && isSeletcted) {
         try {
           const { data } = await axios.get(
-            `/api/products?keyword=${keyword}&suggest=true`,
+            `${PRODUCTS_URL}?keyword=${keyword}&suggest=true`,
           );
 
           setSuggestions(data.slice(0, 5));
