@@ -54,7 +54,7 @@ const HeroBanner = () => {
              
             <div className="relative w-full aspect-21/9 sm:aspect-21/8 md:aspect-21/7 lg:aspect-21/7">
               <img 
-                src={slide.image.startwith('http') ? slide.image : `https://chalo-baba-backend.vercel.app${slide.image}`} 
+                src={slide.image.startWith('http') ? slide.image : `https://chalo-baba-backend.vercel.app${slide.image}`} 
                 className="absolute inset-0 w-full h-full object-cover" 
                 alt={slide.title}
                 loading="eager"

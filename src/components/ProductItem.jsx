@@ -11,7 +11,7 @@ const ProductItem = ({ product }) => {
       <Link to={`/product/${product._id}`}>
         <div className="overflow-hidden h-30 sm:h-56">
           <img
-            src={product.image.startwith('http') ? product.image : `https://chalo-baba-backend.vercel.app${product.image}`}
+            src={product.image.startWith('http') ? product.image : `https://chalo-baba-backend.vercel.app${product.image}`}
              alt={product.name}
             className="h-full w-full object-cover group-hover:scale-110 transition -transform duration-500"
           />
