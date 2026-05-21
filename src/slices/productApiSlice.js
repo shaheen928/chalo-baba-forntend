@@ -1,0 +1,65 @@
+import { apiSlice } from "./apiSlice";
+import { PRODUCTS_URL } from "../constants";
+
+const productApiSlice = apiSlice.injectEndpoints({
+  endpoints: (builder) => ({
+    getAdminProduct: builder.query({
+      query: () => ({
+        url: `${PRODUCTS_URL}/admin`,
+      }),
+      providesTags: ["Product"],
+    }),
+    productDetails: builder.query({
+      query: (productId) => ({
+        url: `${PRODUCTS_URL}/${productId}`,
+      }),
+    }),
+    createProduct: builder.mutation({
+      query: () => ({
+        url: PRODUCTS_URL,
+        method: "POST",
+      }),
+      invalidatesTags: ["Product"],
+    }),
+    uploadProductImage: builder.mutation({
+      query: (data) => ({
+        url: `/api/upload`,
+        method: "POST",
+        body: data,
+      }),
+    }),
+    updateProduct: builder.mutation({
+      query: (data) => ({
+        url: `${PRODUCTS_URL}/${data.productId}`,
+        method: "PUT",
+        body: data,
+      }),
+      invalidatesTags: ["Product"],
+    }),
+    deleteProduct: builder.mutation({
+      query: (productId) => ({
+        url: `${PRODUCTS_URL}/${productId}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["Product"],
+    }),
+    createReview: builder.mutation({
+      query: (data) => ({
+        url: `${PRODUCTS_URL}/${data.productId}/reviews`,
+        method: "POST",
+        body: data,
+      }),
+      invalidatesTags: ["Product"],
+    }),
+  }),
+});
+
+export const {
+  useGetAdminProductQuery,
+  useCreateProductMutation,
+  useUpdateProductMutation,
+  useProductDetailsQuery,
+  useUploadProductImageMutation,
+  useCreateReviewMutation,
+  useDeleteProductMutation,
+} = productApiSlice;
