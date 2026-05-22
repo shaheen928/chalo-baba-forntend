@@ -32,19 +32,19 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className=" flex items-center justify-center bg-gray-50 px-4">
-      <div className="bg-slate-900 p-8 rounded-3xl mt-2.5 shadow-2xl w-full max-w-md border border-slate-800">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-white mb-2">Set a new password</h2>
-          <p className="text-slate-400 text-sm mb-6">
-            Enter the OTP received in the email and the new password
-          </p>
-        </div>
+    <div className=" min-h-screen flex items-center justify-center bg-gray-50 px-4 pt-24 pb-8 md:pt-32">
+      <div className="bg-slate-900 p-5 md:p-8 rounded-3xl shadow-2xl w-full max-w-md border border-slate-800 transition-all">
+      <div className="text-center mb-4 md:mb-6">
+  <h2 className="text-2xl md:text-3xl font-bold text-white mb-1.5">Set a new password</h2>
+  <p className="text-slate-400 text-xs md:text-sm">
+    Enter the OTP received in the email and the new password
+  </p>
+</div>
 
-        <form onSubmit={submitHandler} className="space-y-5">
+        <form onSubmit={submitHandler} className="space-y-3.5 md:space-y-5">
           {/* OTP Code */}
           <div>
-            <label className="text-slate-400 block mb-2">OTP Code</label>
+            <label className="text-slate-400 block mb-1">OTP Code</label>
             <div className="relative">
               <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
                 <FaKey />
@@ -52,7 +52,7 @@ const ResetPassword = () => {
               <input
                 type="text"
                 required
-                className="pl-10 w-full p-3 rounded-xl bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-blue-500 transition"
+                className="pl-10 w-full p-2.5 md:p-3 rounded-xl bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-blue-500 transition"
                 placeholder="123456"
                 value={otp}
                 onChange={(e) => setOtp(e.target.value)}
@@ -62,7 +62,7 @@ const ResetPassword = () => {
 
           
           <div>
-            <label className="text-slate-400 block mb-2">New Password</label>
+            <label className="text-slate-400 block mb-1">New Password</label>
             <div className="relative">
               <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
                 <FaLock />
@@ -70,7 +70,7 @@ const ResetPassword = () => {
               <input
                 type="password"
                 required
-                className="pl-10 w-full p-3 rounded-xl bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-blue-500 transition"
+                className="pl-10 w-full p-2.5 md:p-3 rounded-xl bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-blue-500 transition"
                 placeholder="******"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -80,7 +80,7 @@ const ResetPassword = () => {
 
           
           <div>
-            <label className="text-slate-400 block mb-2">Confirm Password</label>
+            <label className="text-slate-400 block mb-1">Confirm Password</label>
             <div className="relative">
               <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
                 <FaLock />
@@ -88,7 +88,7 @@ const ResetPassword = () => {
               <input
                 type="password"
                 required
-                className="pl-10 w-full p-3 rounded-xl bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-blue-500 transition"
+                className="pl-10 w-full p-2.5 md:p-3 rounded-xl bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-blue-500 transition"
                 placeholder="******"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
@@ -99,7 +99,7 @@ const ResetPassword = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition-all mt-2 flex justify-center items-center shadow-lg"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 md:py-3 rounded-xl transition-all mt-2 flex justify-center items-center shadow-lg"
           >
             {isLoading ? <FaSpinner className="animate-spin" /> : "Change Password"}
           </button>

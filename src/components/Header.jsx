@@ -203,28 +203,28 @@ const Header = () => {
               Home
             </Link>
             <Link
-              to="/search/electronics"
+              to="/search/robot"
               className="hover:text-white transition-colors"
             >
-              Electronics
+              Smart Toys
             </Link>
             <Link
-              to="/search/mobiles"
+              to="/search/watch"
               className="hover:text-white transition-colors"
             >
-              Mobiles
+              Kids Gadgets
             </Link>
             <Link
-              to="/search/laptops"
+              to="/search/stroller"
               className="hover:text-white transition-colors"
             >
-              Laptops
+              Luxury Mobility
             </Link>
             <Link
-              to="/search/cameras"
+              to="/search/crib"
               className="hover:text-white transition-colors"
             >
-              Cameras
+              Smart Nursery
             </Link>
           </div>
         </div>

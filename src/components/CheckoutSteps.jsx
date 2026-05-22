@@ -12,7 +12,7 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
         {step2 ? <Link to="/shipping" className='whitespace-nowrap text-xs md:text-sm font-medium'>Shipping & Payment</Link> : 'Shipping & Payment'}
        </div>
       <div className="text-slate-700">➤</div>
-      <div className={step3 ? 'text-blue-500 whitespace-nowrap text-xs md:text-sm font-medium' : 'text-slate-500'}>
+      <div className={step3 ? 'text-blue-500 whitespace-nowrap text-xs md:text-sm font-medium' : 'text-slate-500 whitespace-nowrap text-xs md:text-sm font-medium'}>
         Place Order
       </div>
     </div>
