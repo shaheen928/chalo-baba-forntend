@@ -35,9 +35,10 @@ const LoginScreen = () => {
     }
   };
   return (<>
-    
+      <div className="py-2"></div>
+    <CheckoutSteps  step1/>
     <div className="flex justify-center items-center ">
-    <CheckoutSteps step1/>
+    
       
       <div className="bg-slate-900 p-5 sm:p-8 rounded-3xl shadow-2xl w-full max-w-md border border-slate-800">
         <h1 className="text-2xl sm:text-3xl font-semibold text-white mb-4 sm:mb-6">Login</h1>

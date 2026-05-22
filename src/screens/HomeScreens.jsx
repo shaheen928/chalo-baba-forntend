@@ -9,7 +9,7 @@ const HomeScreen = () => {
     <>
       <HeroBanner />
 
-      <div className="py-2">
+      <div className="py-1">
         <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-4 mb-4 md:mt-8">
           Latest Products
         </h2>
