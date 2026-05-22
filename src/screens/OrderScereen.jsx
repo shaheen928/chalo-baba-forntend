@@ -250,7 +250,7 @@ const OrderScereen = () => {
             (order.isPaid || order.paymentMethod === "COD") && (
               <button
                 type="button"
-                className="w-full bg-blue-600 text-white py-2.5 sm:py-3 rounded-xl mt-4 
+                className="w-full bg-blue-600 text-white py-2.5 sm:py-3 rounded-xl mt-3 
           hover:bg-blue-700 transition  "
                 onClick={deliverOrderHandler}
               >
@@ -263,7 +263,7 @@ const OrderScereen = () => {
             !order.isPaid &&
             !order.isCancelled && (
               <button
-                className="w-full bg-red-600 text-white py-2.5 sm:py-3 rounded-xl mt-4 
+                className="w-full bg-red-600 text-white py-2.5 sm:py-3 rounded-xl mt-3 
           hover:bg-red-700 transtion font-bold "
                 onClick={cancelOrderHandler}
                 disabled={loadingCancel}
@@ -273,7 +273,7 @@ const OrderScereen = () => {
             )}
 
           {order.isCancelled ? (
-            <div className="mt-4">
+            <div className="mt-3">
               <Message variant="danger">
                 Cancelled on {new Date(order.cancelledAt).toLocaleDateString()}
               </Message>

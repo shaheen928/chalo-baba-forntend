@@ -4,18 +4,21 @@ import { FaUser } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import SearchBar from "./SearchBar";
 import { logout } from "../slices/authSlice";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 import { FaTasks } from "react-icons/fa";
 import { FaBoxesStacked } from "react-icons/fa6";
 import { FaUsers } from "react-icons/fa6";
 import { GrUserAdmin } from "react-icons/gr";
 import { FaChartLine } from "react-icons/fa";
-import { FaImages } from 'react-icons/fa';
+import { FaImages } from "react-icons/fa";
 
 const Header = () => {
   const [adminMenuOpen, setAdminMenuOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
+
+  const adminMenuRef = useRef(null);
+  const userMenuRef = useRef(null);
 
   const { userInfo } = useSelector((state) => state.auth);
   const { cartItems } = useSelector((state) => state.cart);
@@ -30,6 +33,22 @@ const Header = () => {
     navigate("/login");
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        adminMenuRef.current &&
+        !adminMenuRef.current.contains(event.target)
+      ) {
+        setAdminMenuOpen(false);
+      }
+      if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
+        setUserMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
     <>
       <header className="fixed top-0 left-0 w-full z-50 bg-slate-900 text-white shadow-lg">
@@ -38,8 +57,11 @@ const Header = () => {
             to="/"
             className="flex items-center transition-transform active:scale-95 duration-200 "
           >
-            <img src="/logo.png" alt="Chalo Baba" 
-            className="h-12 w-auto  object-cover"/>
+            <img
+              src="/logo.png"
+              alt="Chalo Baba"
+              className="h-12 w-auto  object-cover"
+            />
           </Link>
 
           <div className="w-full order-3 md:order-2 md:flex-1 max-w-full md:max-w-md lg:max-w-xl mx-auto md:mx-8">
@@ -65,7 +87,7 @@ const Header = () => {
             {userInfo ? (
               <div className="flex items-center space-x-2 sm:space-x-4">
                 {userInfo.isAdmin && (
-                  <div className="relative">
+                  <div className="relative" ref={adminMenuRef}>
                     <button
                       onClick={() => setAdminMenuOpen(!adminMenuOpen)}
                       className="flex items-center gap-1 sm:gap-2 hover:text-blue-400 text-white px-2 sm:px-4 py-2 rounded-xl transition-all font-medium"
@@ -113,20 +135,19 @@ const Header = () => {
                           <span>Manage Users</span>
                         </Link>
                         <Link
-    to="/admin/banners"
-    onClick={() => setAdminMenuOpen(false)}
-    className="flex items-center gap-3 px-4 py-3 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition-colors border-t border-slate-50"
-  >
-    <FaImages className="text-blue-500" />
-    <span>Manage Banners</span>
-  </Link>
-                        
+                          to="/admin/banners"
+                          onClick={() => setAdminMenuOpen(false)}
+                          className="flex items-center gap-3 px-4 py-3 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition-colors border-t border-slate-50"
+                        >
+                          <FaImages className="text-blue-500" />
+                          <span>Manage Banners</span>
+                        </Link>
                       </div>
                     )}
                   </div>
                 )}
 
-                <div className="relative">
+                <div className="relative" ref={userMenuRef}>
                   <button
                     onClick={() => setUserMenuOpen(!userMenuOpen)}
                     className="flex items-center space-x-1 text-white hover:text-blue-400 font-medium py-2 px-1"
