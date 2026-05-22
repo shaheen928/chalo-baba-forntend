@@ -41,10 +41,10 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="relative w-full max-w-lg">
+    <div className="relative w-full mx-auto">
       <form
         onSubmit={submitHandler}
-        className="flex items-center w-full mx-w-sm"
+        className="flex items-center w-full "
       >
         <input
           type="text"
