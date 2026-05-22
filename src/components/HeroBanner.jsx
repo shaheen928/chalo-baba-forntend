@@ -70,7 +70,7 @@ const HeroBanner = () => {
                 </p> 
                  
                  <Link  
-                  className="bg-white text-blue-600 hover:bg-blue-600 hover:text-white px-3 sm:px-6 py-2 sm:py-3 rounded-xl text-sm sm:text-base font-bold transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg" 
+                  className="bg-white text-blue-600 hover:bg-blue-600 hover:text-white px-3 sm:px-6 py-1.5 sm:py-3 rounded-xl text-xs md:text-sm font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg" 
                   to={slide.link ? slide.link : `/search/${slide.title}`}
                 >
                   Buy Now

@@ -33,7 +33,7 @@ const Header = () => {
   return (
     <>
       <header className="fixed top-0 left-0 w-full z-50 bg-slate-900 text-white shadow-lg">
-        <nav className="  w-full mx-auto px-4 py-3 flex flex-wrap md:flex-row items-center justify-between gap-3 md:gap-5">
+        <nav className="w-full mx-auto px-4 py-3 flex flex-wrap lg:flex-row items-center justify-between gap-3 md:gap-5">
           <Link
             to="/"
             className="flex items-center transition-transform active:scale-95 duration-200 "
@@ -42,7 +42,7 @@ const Header = () => {
             className="h-12 w-auto  object-cover"/>
           </Link>
 
-          <div className="w-full order-3 md:order-2 md:flex-1 md:max-w-md lg:max-w-xl mx-auto ">
+          <div className="w-full order-3 md:order-2 md:flex-1 max-w-full md:max-w-md lg:max-w-xl mx-auto md:mx-8">
             <SearchBar />
           </div>
 

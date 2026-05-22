@@ -8,9 +8,9 @@ const HomeScreen = () => {
   return (
     <>
       <HeroBanner />
-      
+
       <div className="py-4">
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-800 mb-8 border-b-2 border-slate-200 pb-2 inline-block tracking-tight">
+        <h1 className="text-xl sm:text-3xl font-extrabold text-slate-800 mt-4 mb-3 md:mt-8 md:mb-6 border-b-2 border-slate-200 pb-2 inline-block tracking-tight">
           Latest Products
         </h1>
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-2">
