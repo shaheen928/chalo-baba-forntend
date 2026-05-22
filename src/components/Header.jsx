@@ -42,7 +42,7 @@ const Header = () => {
             className="h-12 w-auto  object-cover"/>
           </Link>
 
-          <div className="w-full order-3 md:order-2 md:flex-1 md:max-w-md lg:mx-w-xl ">
+          <div className="w-full order-3 md:order-2 md:flex-1 md:max-w-md lg:max-w-xl mx-auto ">
             <SearchBar />
           </div>
 

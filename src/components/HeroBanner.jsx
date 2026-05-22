@@ -52,9 +52,9 @@ const HeroBanner = () => {
         {banners.map((slide) => (
           <SwiperSlide key={slide._id} className="bg-slate-950">
              
-            <div className="relative w-full aspect-21/9 sm:aspect-21/8 md:aspect-21/7 lg:aspect-21/7">
+            <div className="relative w-full aspect-21/10 sm:aspect-21/8 md:aspect-21/7 lg:aspect-21/7">
               <img 
-                src={slide && slide.image && typeof slide.image === 'String' && slide.image.startWith('http') ? slide.image : `https://chalo-baba-backend.vercel.app${slide.image}`} 
+                src={slide?.image} 
                 className="absolute inset-0 w-full h-full object-cover" 
                 alt={slide.title}
                 loading="eager"

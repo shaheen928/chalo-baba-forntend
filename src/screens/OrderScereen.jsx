@@ -157,7 +157,7 @@ const OrderScereen = () => {
                   <div className="flex items-center gap-3 sm:gap-4 min-w-0">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 bg-gray-50 rounded-lg overflow-hidden border border-gray-100 flex items-center justify-center">
                       <img
-                         src={item && item.image && typeof item.image === 'String' && item.image.startWith('http') ? item.image : `https://chalo-baba-backend.vercel.app${item.image}`}
+                         src={item?.image}
                         alt={item.name}
                         className="h-full w-full object-cover  "
                       />

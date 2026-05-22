@@ -55,7 +55,7 @@ const ProductScereen = () => {
         w-full  flex items-center justify-center"
         >
           <img
-            src={product && product.image && typeof product.image === 'String' && product.image.startWith('http') ? product.image : `https://chalo-baba-backend.vercel.app${product.image}`}
+            src={product?.image}
             alt={product.name}
             className="w-full h-full max-h-full max-w-full object-cover "
           />
