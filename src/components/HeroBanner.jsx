@@ -52,7 +52,7 @@ const HeroBanner = () => {
         {banners.map((slide) => (
           <SwiperSlide key={slide._id} className="bg-slate-950">
              
-            <div className="relative w-full aspect-21/10 sm:aspect-21/8 md:aspect-21/7 lg:aspect-21/7">
+            <div className="relative w-full aspect-4/3 sm:aspect-16/7 md:aspect-21/7 ">
               <img 
                 src={slide?.image} 
                 className="absolute inset-0 w-full h-full object-cover" 
@@ -61,11 +61,11 @@ const HeroBanner = () => {
               />
               
                
-              <div className="absolute inset-0 bg-liner-to-r from-black/80 via-black/40 to-transparent flex flex-col items-start justify-center text-white text-left p-6 sm:p-12 md:p-16">
-                <h2 className="text-xl sm:text-3xl md:text-5xl font-extrabold mb-3 drop-shadow-lg leading-tight">
+              <div className="absolute inset-0 bg-gradient-liner-to-r from-black/80 via-black/40 to-transparent flex flex-col items-start justify-center text-white text-left p-6 sm:p-12 md:p-16">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold  mb-3 line-clamp-2 leading-tight">
                   {slide.title}
                 </h2>
-                <p className="text-sm md:text-lg font-medium opacity-90 mb-6 max-w-md drop-shadow-md">
+                <p className="text-sm md:text-lg font-medium opacity-90 mb-6 max-w-sm line-clamp-2 ">
                   {slide.subtitle}
                 </p> 
                  
