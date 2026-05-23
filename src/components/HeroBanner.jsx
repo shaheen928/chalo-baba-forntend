@@ -16,7 +16,7 @@ const HeroBanner = () => {
   if(error || !banners || banners.length === 0 ) return null
    
 
-  return <div className="max-w-7xl  mx-auto my-6 px-4 ">
+  return <div className="max-w-7xl  mx-auto my-6 pt-4 ">
     <style>{`
         @media (max-width: 640px) {
           .swiper-button-next,
@@ -52,7 +52,7 @@ const HeroBanner = () => {
         {banners.map((slide) => (
           <SwiperSlide key={slide._id} className="bg-slate-950">
              
-            <div className="relative w-full aspect-4/3 sm:aspect-16/7 md:aspect-21/7 ">
+            <div className="relative w-full aspect-21/9 sm:aspect-21/8 md:aspect-21/7 ">
               <img 
                 src={slide?.image} 
                 className="absolute inset-0 w-full h-full object-cover" 
