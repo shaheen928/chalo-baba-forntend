@@ -35,7 +35,7 @@ const LoginScreen = () => {
     }
   };
   return (<>
-      <div className="py-2"></div>
+      <div className="py-4"></div>
     <CheckoutSteps  step1/>
     <div className="flex justify-center items-center ">
     

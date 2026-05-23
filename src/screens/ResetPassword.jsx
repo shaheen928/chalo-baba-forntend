@@ -46,7 +46,7 @@ const ResetPassword = () => {
           <div>
             <label className="text-slate-400 block mb-1">OTP Code</label>
             <div className="relative">
-              <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400 z-10 pointer-events-none">
+              <span className="absolute inset-y-0 left-0 w-10 flex items-center justify-center text-gray-400 z-10 pointer-events-none">
                 <FaKey />
               </span>
               <input
@@ -64,7 +64,7 @@ const ResetPassword = () => {
           <div>
             <label className="text-slate-400 block mb-1">New Password</label>
             <div className="relative">
-              <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400 z-10 pointer-events-none">
+              <span className="absolute inset-y-0 left-0 w-10 flex items-center justify-center text-gray-400 z-10 pointer-events-none">
                 <FaLock />
               </span>
               <input
@@ -82,7 +82,7 @@ const ResetPassword = () => {
           <div>
             <label className="text-slate-400 block mb-1">Confirm Password</label>
             <div className="relative">
-              <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400 z-10 pointer-events-none">
+              <span className="absolute inset-y-0 left-0 w-10 flex items-center justify-center text-gray-400 z-10 pointer-events-none">
                 <FaLock />
               </span>
               <input

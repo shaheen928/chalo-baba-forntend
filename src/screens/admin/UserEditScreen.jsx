@@ -46,10 +46,10 @@ const UserEditScreen = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
+<div className="container mx-auto px-4 pt-24 pb-8">
       <Link
         to="/admin/userlist"
-        className="btn btn-light my-3 bg-slate-100 px-4 py-2 rounded-lg"
+        className="btn btn-light my-3 bg-slate-100 px-4 py-2 rounded-lg inline-block"
       >
         Go Back
       </Link>
@@ -108,3 +108,4 @@ const UserEditScreen = () => {
   );
 };
 export default UserEditScreen;
+    

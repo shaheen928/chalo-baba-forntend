@@ -41,7 +41,7 @@ const RegisterScreen = () => {
   };
 
   return (
-    <div className="flex justify-center items-center  px-4 ">
+    <div className="flex justify-center items-center  px-4 min-h-screen pt-20 pb-1o">
       <div className="bg-slate-900 p-3.5 sm:p-8 rounded-3xl shadow-2xl w-full max-w-md border border-slate-800">
         <h1 className="text-2xl sm:text-3xl font-semibold  text-white  mb-5 sm:mb-6 text-center tracking-tight">Create a new account</h1>
         

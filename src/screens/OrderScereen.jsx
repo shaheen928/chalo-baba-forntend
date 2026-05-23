@@ -155,6 +155,7 @@ const OrderScereen = () => {
                   className="flex justify-between items-baseline border-b border-slate-100 pb-2.5 last:border-0 last:pb-0"
                 >
                   <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+
                     <div className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 bg-gray-50 rounded-lg overflow-hidden border border-gray-100 flex items-center justify-center">
                       <img
                          src={item?.image}
@@ -170,7 +171,7 @@ const OrderScereen = () => {
                       {item.name}
                     </span>
                   <span className="text-sm text-slate-500 font-medium sm:hidden">
-                    {item.qty} &times; Rs {item.price}
+                    {item.qty} &times; Rs {item.price} =
                   </span>
                   </div>
                   </div>

@@ -49,7 +49,7 @@ const ProductListScreen = () => {
   
   return (
     <div className="container mx-auto px-3 sm:px-6 py-4 sm:py-10">
-      <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-6 sm:mb-8 ">
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-6 mt-4 sm:mb-8 ">
         <h1 className="text-2xl sm:text-3xl font-bold text-slate-800 tracking-tight text-center sm:text-left">
           Products Inventory
         </h1>

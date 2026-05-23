@@ -38,9 +38,10 @@ const ShippingScreen = () => {
   return (
     <>
       
-
+       <div className="py-4">
+       <CheckoutSteps step1 step2 />
       <div className="max-w-2xl mx-auto mt-2 px-4 mb-6">
-      <CheckoutSteps step1 step2 />
+      
         <form
           onSubmit={submitHandler}
           className="bg-slate-900 rounded-3xl border border-slate-800 shadow-2xl p-5 md:p-8 space-y-5"
@@ -199,6 +200,7 @@ const ShippingScreen = () => {
             </button>
           </div>
         </form>
+      </div>
       </div>
     </>
   );
