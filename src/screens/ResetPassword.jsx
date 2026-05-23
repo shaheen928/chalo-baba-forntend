@@ -1,6 +1,3 @@
- 
-
-
 import { useState } from "react";
 import { useResetPasswordMutation } from "../slices/userApiSlice";
 import { toast } from "react-toastify";
@@ -10,22 +7,21 @@ import { FaKey, FaLock, FaSpinner } from "react-icons/fa";
 const ResetPassword = () => {
   const [otp, setOtp] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState(""); 
+  const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
   const [resetPassword, { isLoading }] = useResetPasswordMutation();
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    
-    
+
     if (password !== confirmPassword) {
       return toast.error("Passwords do not match.");
     }
-    
+
     try {
       await resetPassword({ otp, password }).unwrap();
       toast.success("Password has been changed successfully.");
-      navigate("/login"); 
+      navigate("/login");
     } catch (err) {
       toast.error(err?.data?.message || "The code is invalid or has expired.");
     }
@@ -34,12 +30,14 @@ const ResetPassword = () => {
   return (
     <div className="bg-gray-50 px-4 pt-24 pb-12 flex justify-center items-center">
       <div className="bg-slate-900 p-5 md:p-8 rounded-3xl shadow-2xl w-full max-w-md border border-slate-800 transition-all">
-      <div className="text-center mb-4 md:mb-6">
-  <h2 className="text-2xl md:text-3xl font-bold text-white mb-1.5">Set a new password</h2>
-  <p className="text-slate-400 text-xs md:text-sm">
-    Enter the OTP received in the email and the new password
-  </p>
-</div>
+        <div className="text-center mb-4 md:mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-1.5">
+            Set a new password
+          </h2>
+          <p className="text-slate-400 text-xs md:text-sm">
+            Enter the OTP received in the email and the new password
+          </p>
+        </div>
 
         <form onSubmit={submitHandler} className="space-y-3.5 md:space-y-5">
           {/* OTP Code */}
@@ -60,7 +58,6 @@ const ResetPassword = () => {
             </div>
           </div>
 
-          
           <div>
             <label className="text-slate-400 block mb-1">New Password</label>
             <div className="relative">
@@ -78,9 +75,10 @@ const ResetPassword = () => {
             </div>
           </div>
 
-          
           <div>
-            <label className="text-slate-400 block mb-1">Confirm Password</label>
+            <label className="text-slate-400 block mb-1">
+              Confirm Password
+            </label>
             <div className="relative">
               <span className="absolute inset-y-0 left-0 w-10 flex items-center justify-center text-gray-400 z-10 pointer-events-none">
                 <FaLock />
@@ -101,7 +99,11 @@ const ResetPassword = () => {
             disabled={isLoading}
             className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 md:py-3 rounded-xl transition-all mt-2 flex justify-center items-center shadow-lg"
           >
-            {isLoading ? <FaSpinner className="animate-spin" /> : "Change Password"}
+            {isLoading ? (
+              <FaSpinner className="animate-spin" />
+            ) : (
+              "Change Password"
+            )}
           </button>
         </form>
       </div>

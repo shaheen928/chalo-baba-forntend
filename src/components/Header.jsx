@@ -203,7 +203,7 @@ const Header = () => {
               Home
             </Link>
             <Link
-              to="/search/robot"
+              to="/search/toy"
               className="hover:text-white transition-colors"
             >
               Smart Toys

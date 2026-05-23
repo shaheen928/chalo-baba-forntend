@@ -73,13 +73,13 @@ const PlaceOrderScreen = () => {
             {cart.cartItems.length === 0 ? (
               <p>Your cart is empty</p>
             ) : (
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {cart.cartItems.map((item, index) => (
                   <div
                     key={index}
-                    className="flex items-baseline justify-between border-b pb-4 last:border-0 last:pb-0">
-                    <div className="flex items-center gap-4 min-w-0">
-                      <div className="w-12 h-12 sm:w-16 sm:h-16 shrink-0 overflow-hidden rounded-lg border border-gray-100 flex items-center justify-center">
+                    className="flex justify-between items-baseline border-b border-slate-100 pb-2.5 last:border-0 last:pb-0">
+                    <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 bg-gray-50 rounded-lg overflow-hidden border border-gray-100 flex items-center justify-center">
                       <img
                         src={item?.image}
                         alt={item.name}
@@ -89,7 +89,7 @@ const PlaceOrderScreen = () => {
                       <div className="flex flex-col gap-0.5 min-w-0">
                         <Link
                           to={`/product/${item._id}`}
-                          className="text-blue-600 hover:underline font-medium text-sm sm:text-lg truncate max-w-33 sm:max-w-none "
+                          className="text-blue-600 hover:underline font-bold text-sm  truncate max-w-30 sm:max-w-none "
                         >
                           {item.name}
                         </Link>
@@ -99,12 +99,11 @@ const PlaceOrderScreen = () => {
                         </span>
                       </div>
                     </div>
-                    <div className="text-sm sm:text-base text-slate-700 font-bold shrink-0 text-right pl-2
-                    self-end pb-0.5 whitespace-nowrap">
-                      <span className="hidden sm:inline text-slate-400 text-base font-medium mr-1">
+                    <div className="text-sm  text-slate-700 text-right shrink-0 pl-2 self-end pb-0.5">
+                      <span className="hidden sm:inline text-slate-500 text-xs font-medium mr-1">
                         {item.qty} x Rs{item.price} =
                       </span>
-                      <strong className="text-slate-800 font-bold inline-block align-middle text-base sm:text-lg ">
+                      <strong className="font-black text-slate-800">
                         Rs {(item.qty * item.price).toFixed(2)}
                       </strong>
                     </div>
