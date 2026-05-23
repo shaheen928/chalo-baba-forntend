@@ -42,7 +42,7 @@ const RegisterScreen = () => {
 
   return (
     <div className="flex justify-center items-center  px-4  pt-16 pb-6">
-      <div className="bg-slate-900 p-3.5 sm:p-8 rounded-3xl shadow-sm w-full max-w-md border border-slate-800">
+      <div className="bg-slate-900 p-4 sm:p-8 rounded-3xl shadow-sm w-full max-w-md border border-slate-800">
         <h1 className="text-2xl sm:text-3xl font-semibold  text-white  mb-5 sm:mb-6 text-center tracking-tight">Create a new account</h1>
         
         <form onSubmit={submitHandler} className="space-y-4">
