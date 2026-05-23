@@ -52,7 +52,7 @@ const ResetPassword = () => {
               <input
                 type="text"
                 required
-                className="pl-10 w-full p-2.5 md:p-3 rounded-xl bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-blue-500 transition"
+                className="pl-10 w-full p-2.5  rounded-xl bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-blue-500 transition"
                 placeholder="123456"
                 value={otp}
                 onChange={(e) => setOtp(e.target.value)}
@@ -70,7 +70,7 @@ const ResetPassword = () => {
               <input
                 type="password"
                 required
-                className="pl-10 w-full p-2.5 md:p-3 rounded-xl bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-blue-500 transition"
+                className="pl-10 w-full p-2.5  rounded-xl bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-blue-500 transition"
                 placeholder="******"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -88,7 +88,7 @@ const ResetPassword = () => {
               <input
                 type="password"
                 required
-                className="pl-10 w-full p-2.5 md:p-3 rounded-xl bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-blue-500 transition"
+                className="pl-10 w-full p-2.5  rounded-xl bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-blue-500 transition"
                 placeholder="******"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
