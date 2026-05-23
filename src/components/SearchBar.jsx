@@ -1,5 +1,5 @@
 import { PRODUCTS_URL } from "../constants";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -8,6 +8,20 @@ const SearchBar = () => {
   const [suggestions, setSuggestions] = useState([]);
   const navigate = useNavigate();
   const [isSeletcted, setIsSeletcsd] = useState(false);
+  const searchBarRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        searchBarRef.current &&
+        !searchBarRef.current.contains(event.target)
+      ) {
+        setSuggestions([]);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+   return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   useEffect(() => {
     const fetchSuggestions = async () => {
@@ -41,11 +55,8 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="relative w-full mx-auto">
-      <form
-        onSubmit={submitHandler}
-        className="flex items-center w-full "
-      >
+    <div className="relative w-full mx-auto" ref={searchBarRef}>
+      <form onSubmit={submitHandler} className="flex items-center w-full ">
         <input
           type="text"
           value={keyword}
