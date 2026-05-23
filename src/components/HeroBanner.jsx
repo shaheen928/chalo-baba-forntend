@@ -1,23 +1,25 @@
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
+import { Link } from "react-router-dom";
+import { useGetBannersQuery } from "../slices/bannerApiSlice";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules';
-import { Link } from 'react-router-dom';
-import { useGetBannersQuery } from '../slices/bannerApiSlice';
-
- import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/effect-fade';
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade";
 
 const HeroBanner = () => {
-  const{data: banners,isLoading,error}= useGetBannersQuery()
- 
-   if(isLoading) return <div className='h-48 sm:h-64 md:h-96 w-full bg-slate-100 animate-pulse rounded-3xl max-w-5xl mx-auto my-6'></div>
-  if(error || !banners || banners.length === 0 ) return null
-   
+  const { data: banners, isLoading, error } = useGetBannersQuery();
 
-  return <div className="max-w-7xl  mx-auto my-6 pt-4 ">
-    <style>{`
+  if (isLoading)
+    return (
+      <div className="h-48 sm:h-64 md:h-96 w-full bg-slate-100 animate-pulse rounded-3xl max-w-5xl mx-auto my-6"></div>
+    );
+  if (error || !banners || banners.length === 0) return null;
+
+  return (
+    <div className="max-w-7xl  mx-auto mt-6 px-1.5 sm:px-4 ">
+      <style>{`
         @media (max-width: 640px) {
           .swiper-button-next,
           .swiper-button-prev {
@@ -51,26 +53,24 @@ const HeroBanner = () => {
       >
         {banners.map((slide) => (
           <SwiperSlide key={slide._id} className="bg-slate-950">
-             
             <div className="relative w-full aspect-21/9 sm:aspect-21/8 md:aspect-21/7 ">
-              <img 
-                src={slide?.image} 
-                className="absolute inset-0 w-full h-full object-cover" 
+              <img
+                src={slide?.image}
+                className="absolute inset-0 w-full h-full object-cover"
                 alt={slide.title}
                 loading="eager"
               />
-              
-               
+
               <div className="absolute inset-0 bg-gradient-liner-to-r from-black/80 via-black/40 to-transparent flex flex-col items-start justify-center text-white text-left p-6 sm:p-12 md:p-16">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold  mb-3 line-clamp-2 leading-tight">
+                <h2 className="text-xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 leading-tight line-clamp-2">
                   {slide.title}
                 </h2>
-                <p className="text-sm md:text-lg font-medium opacity-90 mb-6 max-w-sm line-clamp-2 ">
+                <p className="text-xs sm:text-sm md:text-lg font-medium opacity-90 mb-4 sm:mb-6 max-w-55 sm:max-w-sm line-clamp-2">
                   {slide.subtitle}
-                </p> 
-                 
-                 <Link  
-                  className="bg-white text-blue-600 hover:bg-blue-600 hover:text-white px-3 sm:px-6 py-1.5 sm:py-3 rounded-xl text-xs md:text-sm font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg" 
+                </p>
+
+                <Link
+                  className="bg-white text-blue-600 hover:bg-blue-600 hover:text-white px-3 sm:px-6 py-1.5 sm:py-3 rounded-xl text-xs md:text-sm font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg"
                   to={slide.link ? slide.link : `/search/${slide.title}`}
                 >
                   Buy Now
@@ -81,5 +81,6 @@ const HeroBanner = () => {
         ))}
       </Swiper>
     </div>
-  }
-  export default HeroBanner
+  );
+};
+export default HeroBanner;
