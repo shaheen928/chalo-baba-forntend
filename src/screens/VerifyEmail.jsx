@@ -29,8 +29,8 @@ const VerifyEmail = () => {
 
   return (
     
-    <div className=" flex items-center justify-center bg-gray-50 px-4">
-      <div className="bg-slate-900 p-5 sm:p-8 rounded-3xl shadow-2xl w-full max-w-md border border-slate-800">
+    <div className=" flex items-center justify-center bg-gray-50 px-4 pt-16 pb-6">
+      <div className="bg-slate-900 p-5 sm:p-8 rounded-3xl shadow-sm w-full max-w-md border border-slate-800">
         <h2 className="text-2xl sm:text-3xl font-semibold text-white mb-2 text-center">Verify Account</h2>
         <p className="text-slate-400 text-sm mb-6 sm:mb-8 text-center">
           We've sent a code to <span className="text-blue-400">{email}</span>
