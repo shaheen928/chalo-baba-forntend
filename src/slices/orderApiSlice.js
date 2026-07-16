@@ -11,12 +11,16 @@ export const ordersApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["order"],
     }),
+
+
     getOrderDetails: builder.query({
       query: (id) => ({
         url: `${ORDERS_URL}/${id}`,
       }),
       keepUnusedDataFor: 5,
     }),
+
+
     payOrderCod: builder.mutation({
       query: (orderId) => ({
         url: `${ORDERS_URL}/${orderId}/cod`,
@@ -24,24 +28,32 @@ export const ordersApiSlice = apiSlice.injectEndpoints({
   
       }),
     }),
+
+
     confirmAdminPayment: builder.mutation({
       query: (orderId) => ({
         url: `${ORDERS_URL}/${orderId}/pay`,
         method: "PUT",
       }),
     }),
+
+
     getMyOrders: builder.query({
       query: () => ({
         url: `${ORDERS_URL}/mine`,
       }),
       keepUnusedDataFor: 5,
     }),
+
+
     getOrders: builder.query({
       query: () => ({
         url: ORDERS_URL,
       }),
       keepUnusedDataFor: 5,
     }),
+
+
     deliverOrder: builder.mutation({
       query: (userId) => ({
         url: `${ORDERS_URL}/${userId}/deliver`,
@@ -49,12 +61,16 @@ export const ordersApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["Order"],
     }),
+
+
     cancelOrder: builder.mutation({
       query: (orderId) => ({
       url: `${ORDERS_URL}/${orderId}/cancel`,
       method: 'PUT',
       }),
     }),
+
+    
     getSummary: builder.query({
       query: () => ({
         url:`${ORDERS_URL}/summary`
