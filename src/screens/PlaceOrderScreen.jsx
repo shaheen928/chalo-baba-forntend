@@ -196,7 +196,6 @@ const PlaceOrderScreen = () => {
     }
   }, [cart.paymentMethod, cart.shippingAddress.address, navigate]);
 
-  // isLoading کو یہاں سے حاصل کریں
   const [createOrder, { isLoading }] = useCreateOrderMutation();
 
   const placeOrderHandler = async () => {
@@ -212,17 +211,20 @@ const PlaceOrderScreen = () => {
         discount: cart.discount,
         discountAmount: cart.discountAmount,
       }).unwrap();
-      
+
       dispatch(clearCartItems());
       navigate(`/order/${res._id}`);
     } catch (err) {
-      // موبائل کریش سے بچنے کے لیے ایرر آبجیکٹ کو محفوظ طریقے سے ہینڈل کریں
-      toast.error(err?.data?.message || err?.error || "Failed to place order. Please try again.");
+      toast.error(
+        err?.data?.message ||
+          err?.error ||
+          "Failed to place order. Please try again.",
+      );
     }
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 pt-8 pb-20 md:pb-8">
       <CheckoutSteps step1 step2 step3 />
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
         <div className="lg:col-span-2 space-y-6">
@@ -240,7 +242,7 @@ const PlaceOrderScreen = () => {
               {cart.shippingAddress.phoneNumber}
             </p>
           </div>
-          
+
           <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
             <h2 className="text-lg sm:text-xl font-bold text-slate-800 mb-4 border-b pb-2">
               Payment Method
@@ -314,7 +316,9 @@ const PlaceOrderScreen = () => {
             {cart.discount > 0 && (
               <div className="flex justify-between text-green-400">
                 <span>Discount:({cart.discount}%)</span>
-                <span className="font-semibold">- Rs {cart.discountAmount}</span>
+                <span className="font-semibold">
+                  - Rs {cart.discountAmount}
+                </span>
               </div>
             )}
             <div className="flex justify-between text-slate-400">
@@ -345,12 +349,22 @@ const PlaceOrderScreen = () => {
             </div>
           </div>
 
-          {/* Touch UI کے لیے بہتر بنایا گیا بٹن */}
           <button
             type="button"
-            className="w-full bg-blue-600 text-white py-4 rounded-2xl font-bold sm:text-lg mt-5 sm:mt-8 hover:bg-blue-700 transition-all shadow-lg shadow-blue-900/20 active:scale-95 disabled:bg-slate-700 disabled:cursor-not-allowed select-none touch-manipulation relative z-10"
+            style={{
+              pointerEvents: "auto",
+              position: "relative",
+              zIndex: 50,
+              touchAction: "manipulation",
+            }}
+            className="w-full bg-blue-600 text-white py-4 rounded-2xl font-bold sm:text-lg mt-5 sm:mt-8 hover:bg-blue-700 transition-all shadow-lg shadow-blue-900/20 active:scale-95 disabled:bg-slate-700 disabled:cursor-not-allowed select-none touch-manipulation mb-6"
             disabled={cart.cartItems.length === 0 || isLoading}
             onClick={placeOrderHandler}
+            onTouchStart={(e) => {
+              if (!isLoading && cart.cartItems.length > 0) {
+                placeOrderHandler();
+              }
+            }}
           >
             {isLoading ? "Processing Order..." : "Confirm Order"}
           </button>
