@@ -150,7 +150,7 @@ import { createRoot } from 'react-dom/client'
 import { Provider } from 'react-redux'
 import store from './store.js'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import HomeScreen from './screens/HomeScreen'
+import HomeScreen from './screens/HomeScreens.jsx'
 import './index.css'
 import App from './App.jsx'
 import ProductScreen from "./screens/ProductScereen.jsx"  
