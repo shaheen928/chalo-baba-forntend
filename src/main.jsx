@@ -3,7 +3,8 @@ import { createRoot } from 'react-dom/client'
 import {Provider} from 'react-redux'
 import store from './store.js'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
-import HomeScreen, { productsLoader } from './screens/HomeScreens.jsx'
+// import HomeScreen, { productsLoader } from './screens/HomeScreens.jsx'
+import HomeScreen from './screens/HomeScreen';
 import './index.css'
 import App from './App.jsx'
 import ProductScereen, { productLoader } from './screens/ProductScereen.jsx'
@@ -56,8 +57,7 @@ const router =createBrowserRouter([
       {
         path: "/page/:pageNumber",
         element: <HomeScreen />,
-        loader:productsLoader
-      },{
+       },{
         path: "/search/:keyword/page/:pageNumber",
         element: <HomeScreen />,
         loader:productsLoader
