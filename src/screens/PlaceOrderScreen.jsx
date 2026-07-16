@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import CheckoutSteps from "../components/CheckoutSteps";
 import { useCreateOrderMutation } from "../slices/orderApiSlice";
 import { clearCartItems } from "../slices/cartSlice";
+import { toast } from "react-toastify";
 
 const PlaceOrderScreen = () => {
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ const PlaceOrderScreen = () => {
       dispatch(clearCartItems());
       navigate(`/order/${res._id}`);
     } catch (error) {
-      console.log(error);
+      toast.error(error)
     }
   };
 
