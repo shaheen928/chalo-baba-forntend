@@ -1,5 +1,3 @@
-
-
 import { apiSlice } from "./apiSlice";
 import { PRODUCTS_URL } from "../constants";
 import { UPLOAD_URL } from "../constants";
@@ -67,7 +65,7 @@ const productApiSlice = apiSlice.injectEndpoints({
 });
 
 export const {
-  useGetProductsQuery,  
+  useGetProductsQuery,
   useGetAdminProductQuery,
   useCreateProductMutation,
   useUpdateProductMutation,
